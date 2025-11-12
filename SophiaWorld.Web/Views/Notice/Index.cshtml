@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "📢 공지사항";
+}
+
+<div class="container py-4">
+    <h2 class="mb-4 text-center">📢 공지사항</h2>
+
+    <div class="text-end mb-3">
+        <button class="btn btn-pink" data-bs-toggle="modal" data-bs-target="#createModal">+ 새 공지 등록</button>
+    </div>
+
+    <table id="noticeTable" class="table table-bordered bg-white cute-card">
+        <thead>
+            <tr>
+                <th style="width:80px;">번호</th>
+                <th>제목</th>
+                <th style="width:150px;">작성일</th>
+                <th style="width:100px;">삭제</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- JS에서 자동으로 채워짐 -->
+        </tbody>
+    </table>
+</div>
+
+<!-- 🌸 등록 모달 -->
+<div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createModalLabel">새 공지 등록</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="noticeTitle" class="form-control" placeholder="공지 제목을 입력하세요.">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                <button type="button" id="btnSaveNotice" class="btn btn-pink">등록</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 🌸 수정 모달 -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editModalLabel">공지 수정</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="editNoticeId">
+                <input type="text" id="editNoticeTitle" class="form-control" placeholder="수정할 제목을 입력하세요.">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+                <button type="button" id="btnUpdateNotice" class="btn btn-pink">저장</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/notice.js"></script>
+}
